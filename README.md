@@ -6,90 +6,92 @@ It also allows your application to track the delivery status of both sent and re
 
 ## How to Build
 
-The generated SDK relies on [Node Package Manager](https://www.npmjs.com/) (NPM) being available to resolve dependencies. If you don't already have NPM installed, please go ahead and follow instructions to install NPM from [here](https://nodejs.org/en/download/).
-The SDK also requires Node to be installed. If Node isn't already installed, please install it from [here](https://nodejs.org/en/download/)
-> NPM is installed by default when Node is installed
 
-To check if node and npm have been successfully installed, write the following commands in command prompt:
-* `node --version`
-* `npm -version` 
-![Version Check](https://apidocs.io/illustration/nodejs?step=versionCheck&workspaceFolder=Telstra%20SMS%20Messaging%20API-Node)  
+You must have Python 2 >=2.7.9 or Python 3 >=3.4 installed on your system to install and run this SDK. This SDK package depends on other Python packages like nose, jsonpickle etc. 
+These dependencies are defined in the ```requirements.txt``` file that comes with the SDK.
+To resolve these dependencies, you can use the PIP Dependency manager. Install it by following steps at [https://pip.pypa.io/en/stable/installing/](https://pip.pypa.io/en/stable/installing/).
 
-Now use npm to resolve all dependencies by running the following command in the root directory (of the SDK folder):
-* `npm install`
-![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency1&workspaceFolder=Telstra%20SMS%20Messaging%20API-Node)
-![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency2)
+Python and PIP executables should be defined in your PATH. Open command prompt and type ```pip --version```.
+This should display the version of the PIP Dependency Manager installed if your installation was successful and the paths are properly defined.
 
-This will install all dependencies in the `node_modules` folder. 
+* Using command line, navigate to the directory containing the generated files (including ```requirements.txt```) for the SDK.
+* Run the command ```pip install -r requirements.txt```. This should install all the required dependencies.
 
-Once dependencies are resolved, you will need to move the folder `TelstraSMSMessagingAPILib ` in to your `node_modules` folder.
+![Building SDK - Step 1](https://apidocs.io/illustration/python?step=installDependencies&workspaceFolder=Telstra%20SMS%20Messaging%20API-Python)
+
 
 ## How to Use
 
-The following section explains how to use the library in a new project.
+The following section explains how to use the Telstrasmsmessagingapi SDK package in a new project.
 
-### 1. Open Project Folder
-Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.  
-Click on `File` and select `Open Folder`
-![Open Folder](https://apidocs.io/illustration/nodejs?step=openFolder)
+### 1. Open Project in an IDE
 
-Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
-![Open Project](https://apidocs.io/illustration/nodejs?step=openProject&workspaceFolder=Telstra%20SMS%20Messaging%20API-Node)
+Open up a Python IDE like PyCharm. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
 
+![Open project in PyCharm - Step 1](https://apidocs.io/illustration/python?step=pyCharm)
 
-### 2. Creating a Test File
-Now right click on the folder name and select the `New File` option to create a new test file.    Save it as `index.js` Now import the generated NodeJS library using the following lines of code:
-```JavaScript
-var lib = require('lib');
+Click on ```Open``` in PyCharm to browse to your generated SDK directory and then click ```OK```.
+
+![Open project in PyCharm - Step 2](https://apidocs.io/illustration/python?step=openProject0&workspaceFolder=Telstra%20SMS%20Messaging%20API-Python)     
+
+The project files will be displayed in the side bar as follows:
+
+![Open project in PyCharm - Step 3](https://apidocs.io/illustration/python?step=openProject1&workspaceFolder=Telstra%20SMS%20Messaging%20API-Python&projectName=telstrasmsmessagingapi)     
+
+### 2. Add a new Test Project
+
+Create a new directory by right clicking on the solution name as shown below:
+
+![Add a new project in PyCharm - Step 1](https://apidocs.io/illustration/python?step=createDirectory&workspaceFolder=Telstra%20SMS%20Messaging%20API-Python&projectName=telstrasmsmessagingapi)
+
+Name the directory as "test"
+
+![Add a new project in PyCharm - Step 2](https://apidocs.io/illustration/python?step=nameDirectory)
+   
+Add a python file to this project with the name "testsdk"
+
+![Add a new project in PyCharm - Step 3](https://apidocs.io/illustration/python?step=createFile&workspaceFolder=Telstra%20SMS%20Messaging%20API-Python&projectName=telstrasmsmessagingapi)
+
+Name it "testsdk"
+
+![Add a new project in PyCharm - Step 4](https://apidocs.io/illustration/python?step=nameFile)
+
+In your python file you will be required to import the generated python library using the following code lines
+
+```Python
+from telstrasmsmessagingapi.telstrasmsmessagingapi_client import TelstrasmsmessagingapiClient
 ```
-Save changes.
 
-![Create new file](https://apidocs.io/illustration/nodejs?step=createNewFile&workspaceFolder=Telstra%20SMS%20Messaging%20API-Node)
-![Save new file](https://apidocs.io/illustration/nodejs?step=saveNewFile&workspaceFolder=Telstra%20SMS%20Messaging%20API-Node)
+![Add a new project in PyCharm - Step 4](https://apidocs.io/illustration/python?step=projectFiles&workspaceFolder=Telstra%20SMS%20Messaging%20API-Python&libraryName=telstrasmsmessagingapi.telstrasmsmessagingapi_client&projectName=telstrasmsmessagingapi)
 
-### 3. Running The Test File
-To run the `index.js` file, open up the command prompt and navigate to the Path where the SDK folder resides. Type the following command to run the file:  
-`node index.js`
-![Run file](https://apidocs.io/illustration/nodejs?step=runProject&workspaceFolder=Telstra%20SMS%20Messaging%20API-Node)
+After this you can write code to instantiate an API client object, get a controller object and  make API calls. Sample code is given in the subsequent sections.
+
+### 3. Run the Test Project
+
+To run the file within your test project, right click on your Python file inside your Test project and click on ```Run```
+
+![Run Test Project - Step 1](https://apidocs.io/illustration/python?step=runProject&workspaceFolder=Telstra%20SMS%20Messaging%20API-Python&libraryName=telstrasmsmessagingapi.telstrasmsmessagingapi_client&projectName=telstrasmsmessagingapi)
 
 
 ## How to Test
 
-These tests use Mocha framework for testing, coupled with Chai for assertions. These dependencies need to be installed for tests to run.
-Tests can be run in a number of ways:
+You can test the generated SDK and the server with automatically generated test
+cases. unittest is used as the testing framework and nose is used as the test
+runner. You can run the tests as follows:
 
-### Method 1 
-###### (Run all tests)
-
-1. Navigate to the root directory of the SDK folder from command prompt.
-2. Type `mocha --recursive` to run all the tests.
-
-### Method 2
-###### (Run all tests)
-
-1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha *` to run all the tests.
-
-### Method 3
-###### (Run specific controller's tests)
-
-1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha  Telstra SMS Messaging APIController`  to run all the tests in that controller file.
-
-> To increase mocha's default timeout, you can change the `TEST_TIMEOUT` parameter's value in `TestBootstrap.js`.  
-
-![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=Telstra%20SMS%20Messaging%20APIController)
+  1. From terminal/cmd navigate to the root directory of the SDK.
+  2. Invoke 'pip install -r test-requirements.txt'
+  3. Invoke 'nosetests'
 
 ## Initialization
 
 ### 
 
-API client can be initialized as following:
+API client can be initialized as following.
 
-```JavaScript
-const lib = require('lib');
+```python
 
-
+client = TelstrasmsmessagingapiClient()
 ```
 
 
@@ -102,24 +104,26 @@ const lib = require('lib');
 
 ## <a name="sms_controller"></a>![Class: ](https://apidocs.io/img/class.png ".SMSController") SMSController
 
-### Get singleton instance
+### Get controller instance
 
-The singleton instance of the ``` SMSController ``` class can be accessed from the API Client.
+An instance of the ``` SMSController ``` class can be accessed from the API Client.
 
-```javascript
-var controller = lib.SMSController;
+```python
+ sms_client = client.sms
 ```
 
-### <a name="create_messages_sms_send"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createMessagesSmsSend") createMessagesSmsSend
+### <a name="create_messages_sms_send"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.create_messages_sms_send") create_messages_sms_send
 
 > *Tags:*  ``` Skips Authentication ``` 
 
 > Send an SMS to a Australian or International mobile phone.
 
-
-```javascript
-function createMessagesSmsSend(authorization, payload, callback)
+```python
+def create_messages_sms_send(self,
+                                 authorization,
+                                 payload)
 ```
+
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -132,15 +136,12 @@ The recipient number should be in the format '04xxxxxxxx' where x is a digit |
 
 #### Example Usage
 
-```javascript
+```python
+authorization = 'Authorization'
+payload = SendSMSRequest()
 
-    var authorization = 'Authorization';
-    var payload = new SendSMSRequest({"key":"value"});
+result = sms_client.create_messages_sms_send(authorization, payload)
 
-    controller.createMessagesSmsSend(authorization, payload, function(error, response, context) {
-
-    
-	});
 ```
 
 #### Errors
@@ -161,16 +162,18 @@ The recipient number should be in the format '04xxxxxxxx' where x is a digit |
 
 
 
-### <a name="get_messages_sms_outgoing_one"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.getMessagesSmsOutgoingOne") getMessagesSmsOutgoingOne
+### <a name="get_messages_sms_outgoing_one"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.get_messages_sms_outgoing_one") get_messages_sms_outgoing_one
 
 > *Tags:*  ``` Skips Authentication ``` 
 
 > Retrieve the status of a single outgoing SMS message.
 
-
-```javascript
-function getMessagesSmsOutgoingOne(authorization, messageId, callback)
+```python
+def get_messages_sms_outgoing_one(self,
+                                      authorization,
+                                      message_id)
 ```
+
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -182,15 +185,12 @@ function getMessagesSmsOutgoingOne(authorization, messageId, callback)
 
 #### Example Usage
 
-```javascript
+```python
+authorization = 'Authorization'
+message_id = 'messageId'
 
-    var authorization = 'Authorization';
-    var messageId = 'messageId';
+result = sms_client.get_messages_sms_outgoing_one(authorization, message_id)
 
-    controller.getMessagesSmsOutgoingOne(authorization, messageId, function(error, response, context) {
-
-    
-	});
 ```
 
 #### Errors
@@ -211,16 +211,17 @@ function getMessagesSmsOutgoingOne(authorization, messageId, callback)
 
 
 
-### <a name="get_messages_sms_outgoing_all"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.getMessagesSmsOutgoingAll") getMessagesSmsOutgoingAll
+### <a name="get_messages_sms_outgoing_all"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.get_messages_sms_outgoing_all") get_messages_sms_outgoing_all
 
 > *Tags:*  ``` Skips Authentication ``` 
 
 > Retrieve the status for all recent outgoing SMS messages
 
-
-```javascript
-function getMessagesSmsOutgoingAll(authorization, callback)
+```python
+def get_messages_sms_outgoing_all(self,
+                                      authorization)
 ```
+
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -231,14 +232,11 @@ function getMessagesSmsOutgoingAll(authorization, callback)
 
 #### Example Usage
 
-```javascript
+```python
+authorization = 'Authorization'
 
-    var authorization = 'Authorization';
+result = sms_client.get_messages_sms_outgoing_all(authorization)
 
-    controller.getMessagesSmsOutgoingAll(authorization, function(error, response, context) {
-
-    
-	});
 ```
 
 #### Errors
@@ -259,16 +257,17 @@ function getMessagesSmsOutgoingAll(authorization, callback)
 
 
 
-### <a name="get_messages_sms_incoming"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.getMessagesSmsIncoming") getMessagesSmsIncoming
+### <a name="get_messages_sms_incoming"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.get_messages_sms_incoming") get_messages_sms_incoming
 
 > *Tags:*  ``` Skips Authentication ``` 
 
 > Retrieve the unread incoming SMS messages
 
-
-```javascript
-function getMessagesSmsIncoming(authorization, callback)
+```python
+def get_messages_sms_incoming(self,
+                                  authorization)
 ```
+
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -279,14 +278,11 @@ function getMessagesSmsIncoming(authorization, callback)
 
 #### Example Usage
 
-```javascript
+```python
+authorization = 'Authorization'
 
-    var authorization = 'Authorization';
+result = sms_client.get_messages_sms_incoming(authorization)
 
-    controller.getMessagesSmsIncoming(authorization, function(error, response, context) {
-
-    
-	});
 ```
 
 #### Errors
